@@ -69,3 +69,14 @@ def by_parity(input_list:list)->dict:
         else:
             result_dict['odd'].append(x)
     return result_dict
+
+def mean_key_value(input_dict:dict)->dict:
+    new_dict={}
+    for key, value in input_dict.items:
+        count=0
+        sum=0
+        for x in value:
+            count=count+1
+            sum=sum+x
+        new_dict.update(key,(sum/count))
+    return new_dict
