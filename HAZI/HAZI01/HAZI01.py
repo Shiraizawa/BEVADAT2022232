@@ -28,3 +28,9 @@ def merge_lists(*args)->list:
             if y not in new_list:
                 new_list.append(y)
     return new_list
+
+def reverse_tuples(input_list:list)->list:
+    reverse_list=[]
+    for x in input_list:
+        reverse_list.append(x.reverse())
+    return reverse_list
