@@ -1,7 +1,7 @@
-def subset(input_list: list, start_index, end_index) -> list:
+def subset(input_list: list, start_index:int, end_index:int) -> list:
     return input_list[start_index:end_index+1]
 
-def every_nth(input_list:list,step_size) -> list:
+def every_nth(input_list:list,step_size:int) -> list:
     new_list=[]
     for x in range(0,len(input_list),step_size):
         new_list.append(input_list[x])
@@ -54,3 +54,9 @@ def transpose(input_list:list)->list:
                 new_list[x.index(y)]=[]
             new_list[x.index(y)].append(y)
     return new_list
+    
+def merge_dicts(*dict: dict)->dict:
+    result_dict={}
+    for x in dict:
+        result_dict=result_dict | x
+    return result_dict
