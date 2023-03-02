@@ -34,3 +34,14 @@ def reverse_tuples(input_list:list)->list:
     for x in input_list:
         reverse_list.append(x.reverse())
     return reverse_list
+
+def remove_duplicates(input_list:list)->list:
+    new_list=[]
+    for x in input_list:
+        is_duplicate=False
+        for y in new_list: 
+            if input_list[x]==new_list[y]:
+                is_duplicate=True
+        if not is_duplicate:
+            new_list.append(input_list[x])
+    return new_list
