@@ -19,4 +19,6 @@ def element_wise_sum(input_list_1:list,input_list_2:list)->list:
         for y in range(0,len(input_list_2),1):
             new_list.append(input_list_1[x]+input_list_2[y])
     return new_list
-    
+
+def dict_to_list(input_dict:dict) ->list:
+    return input_dict.items()
