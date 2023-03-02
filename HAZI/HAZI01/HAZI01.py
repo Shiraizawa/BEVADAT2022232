@@ -45,3 +45,12 @@ def remove_duplicates(input_list:list)->list:
         if not is_duplicate:
             new_list.append(input_list[x])
     return new_list
+
+def transpose(input_list:list)->list:
+    new_list=[]
+    for x in input_list:
+        for y in x:
+            if(new_list[x.index(y)]) is None:
+                new_list[x.index(y)]=[]
+            new_list[x.index(y)].append(y)
+    return new_list
