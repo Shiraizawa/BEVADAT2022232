@@ -54,9 +54,18 @@ def transpose(input_list:list)->list:
                 new_list[x.index(y)]=[]
             new_list[x.index(y)].append(y)
     return new_list
-    
+
 def merge_dicts(*dict: dict)->dict:
     result_dict={}
     for x in dict:
         result_dict=result_dict | x
+    return result_dict
+
+def by_parity(input_list:list)->dict:
+    result_dict={'even': [],'odd': []}
+    for x in input_list:
+        if(x%2)==0:
+            result_dict['even'].append(x)
+        else:
+            result_dict['odd'].append(x)
     return result_dict
