@@ -55,6 +55,18 @@ def transpose(input_list:list)->list:
             new_list[x.index(y)].append(y)
     return new_list
 
+def split_into_chunks(input_list:list,chunk_size:int)->list:
+    result_list=[]
+    chunk_holder=[]
+    for x in input_list:
+        if(len(chunk_holder)>=chunk_size):
+            result_list.append(chunk_holder)
+            chunk_holder=[]
+        chunk_holder.append(x)
+    if chunk_holder is not None:
+        result_list.append(chunk_holder)
+    return result_list
+
 def merge_dicts(*dict: dict)->dict:
     result_dict={}
     for x in dict:
