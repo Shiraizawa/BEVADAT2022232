@@ -36,7 +36,8 @@ def merge_lists(*args)->list:
 def reverse_tuples(input_list:list)->list:
     reverse_list=[]
     for x in input_list:
-        reverse_list.append(x.reverse())
+        holder_tuple=tuple(x)
+        reverse_list.append(holder_tuple[::-1])
     return reverse_list
 
 def remove_duplicates(input_list:list)->list:
@@ -44,19 +45,22 @@ def remove_duplicates(input_list:list)->list:
     for x in input_list:
         is_duplicate=False
         for y in new_list: 
-            if input_list[x]==new_list[y]:
+            if x==y:
                 is_duplicate=True
         if not is_duplicate:
-            new_list.append(input_list[x])
+            new_list.append(x)
     return new_list
 
-def transpose(input_list:list)->list:
-    new_list=[]
-    for x in input_list:
-        for y in x:
-            if(new_list[x.index(y)]) is None:
-                new_list[x.index(y)]=[]
-            new_list[x.index(y)].append(y)
+def transpose(input_list : list) -> list:
+    new_list = []
+    for x in range(len(input_list)):
+        subresult=[]
+        for y in range(len(input_list[x])):
+            subresult.append(0)
+        new_list.append(subresult)
+    for x in range(len(input_list)):
+        for y in range(len(input_list[x])):
+            new_list[x][y]=input_list[y][x]
     return new_list
 
 def split_into_chunks(input_list:list,chunk_size:int)->list:
