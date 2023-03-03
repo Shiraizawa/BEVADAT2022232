@@ -1,5 +1,5 @@
 def subset(input_list: list, start_index:int, end_index:int) -> list:
-    return input_list[start_index:end_index+1]
+    return input_list[start_index:end_index]
 
 def every_nth(input_list:list,step_size:int) -> list:
     new_list=[]
@@ -9,7 +9,7 @@ def every_nth(input_list:list,step_size:int) -> list:
 
 def unique(input_list:list) ->bool:
     for x in range(0,len(input_list)-1,1):
-        for y in range(x,len(input_list),1):
+        for y in range(x+1,len(input_list),1):
             if(input_list[x]==input_list[y]):
              return False
     return True
@@ -25,7 +25,11 @@ def merge_lists(*args)->list:
     new_list=[]
     for x in args:
         for y in x:
-            if y not in new_list:
+            is_unique=True
+            for z in new_list:
+                if y==z:
+                    is_unique=False
+            if is_unique:
                 new_list.append(y)
     return new_list
 
@@ -90,5 +94,6 @@ def mean_key_value(input_dict:dict)->dict:
         for x in value:
             count=count+1
             sum=sum+x
-        new_dict.update(key,(sum/count))
+        if count is not 0:
+            new_dict.update(key,(sum/count))
     return new_dict
