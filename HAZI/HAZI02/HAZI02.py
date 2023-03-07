@@ -25,3 +25,12 @@ def compare_two_array(array1, array2):
 # Ki: "sor: 2, oszlop: 3, melyseg: 1"
 # get_array_shape()
 # 3D-vel még műküdnie kell!
+
+def get_array_shape(array):
+    result_array=np.array(np.shape(array))
+    print(result_array)
+    if len(result_array)<3:
+        melyseg=1
+    else:
+        melyseg=result_array[2]
+    return "sor: {}, oszlop: {}, melyseg: {}".format(result_array[0], result_array[1], melyseg)
