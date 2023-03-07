@@ -8,3 +8,20 @@ import numpy as np
 def column_swap(array):
     array=np.flip(array, 1)
     return array
+
+#Készíts egy olyan függvényt ami összehasonlít két array-t és adjon vissza egy array-ben, hogy hol egyenlőek 
+# Pl Be: [7,8,9], [9,8,7] 
+# Ki: [1]
+# compare_two_array()
+# egyenlő elemszámúakra kell csak hogy működjön
+
+def compare_two_array(array1, array2):
+    result=np.where(array1[::] == array2[::])
+    return result
+
+
+#Készíts egy olyan függvényt, ami vissza adja a megadott array dimenzióit:
+# Be: [[1,2,3], [4,5,6]]
+# Ki: "sor: 2, oszlop: 3, melyseg: 1"
+# get_array_shape()
+# 3D-vel még műküdnie kell!
