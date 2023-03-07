@@ -46,3 +46,13 @@ def bool_array(array):
      array=np.array(array, dtype=bool)
      return array
 
+# Készíts egy olyan függvényt, ami a bementként  0 és 1 ből álló tömben a 1 - False-ra az 0 True-ra cserélni
+# Be: [[1, 0, 0], [1, 1, 1],[0, 0, 0]]
+# Ki: [[ True False False], [ True  True  True], [False False False]]
+# invert_bool_array()
+
+def invert_bool_array(array):
+     array=np.array(array, dtype=bool)
+     array=np.invert(array)
+     return array
+
