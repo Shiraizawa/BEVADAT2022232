@@ -10,3 +10,12 @@ def create_array(size: tuple = (2,2)):
      arr=np.zeros(size)
      return arr
 
+#Készíts egy függvényt ami a paraméterként kapott array-t főátlót feltölti egyesekkel
+#Be: [[1,2],[3,4]]
+#Ki: [[1,2],[3,1]]
+#set_one()
+
+def set_one(array):
+     np.fill_diagonal(array,1)
+     return array
+
