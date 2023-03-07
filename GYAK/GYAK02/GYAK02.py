@@ -19,3 +19,20 @@ def set_one(array):
      np.fill_diagonal(array,1)
      return array
 
+# Transzponáld a paraméterül kapott mártix-ot:
+# Be: [[1, 2], [3, 4]]
+# Ki: [[1, 2], [3, 4]]
+# do_transpose()
+
+def do_transpose(matrix):
+     matrix=np.transpose(matrix)
+     return matrix
+
+# Készíts egy olyan függvényt ami az array-ben lévő értékeket N tizenedjegyik kerekíti, alapértelmezetten 
+# Be: [0.1223, 0.1675], n = 2
+# Ki: [0.12, 0.17]
+# round_array()
+
+def round_array(array, n:int=2):
+     array=np.round(array,n)
+     return array
