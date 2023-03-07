@@ -56,3 +56,11 @@ def invert_bool_array(array):
      array=np.invert(array)
      return array
 
+# Készíts egy olyan függvényt ami a paraméterként kapott array-t kilapítja
+# Be: [[1,2], [3,4]]
+# Ki: [1,2,3,4]
+# flatten()
+
+def flatten(array):
+     array=array.flatten()
+     return array
