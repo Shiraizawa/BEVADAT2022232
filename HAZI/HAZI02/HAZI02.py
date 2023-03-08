@@ -108,3 +108,12 @@ def array_multi_2d(array:np.array):
     result.append(np.prod(array[0]))
     result.append(np.prod(array[1]))
     return np.asarray(result)
+
+# Készíts egy olyan függvényt, amit egy meglévő numpy array-hez készít egy bordert nullásokkal. Bementként egy array-t várjon és kimenetként egy array jelenjen meg aminek van border-je
+# Be: [[1,2],[3,4]]
+# Ki: [[0,0,0,0],[0,1,2,0],[0,3,4,0],[0,0,0,0]]
+# add_border()
+
+def add_border(array:np.array):
+    array=np.pad(array,1,mode="constant",constant_values=0)
+    return array
