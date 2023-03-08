@@ -42,12 +42,7 @@ def get_array_shape(array):
 # encode_Y()
 
 def encode_Y(array:np.array,length:int):
-    new_array = []
-    for x in array:
-        holder_array=np.zeros(length,dtype=int)
-        holder_array[x]=1
-        new_array.append(holder_array)
-    new_array=np.asarray(new_array)
+    new_array= np.eye(length)[array-1]
     return new_array
 
 # A fenti feladatnak valósítsd meg a kiértékelését. Adj meg a 2d array-t és adj vissza a decodolt változatát
