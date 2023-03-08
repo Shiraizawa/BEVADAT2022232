@@ -117,3 +117,11 @@ def array_multi_2d(array:np.array):
 def add_border(array:np.array):
     array=np.pad(array,1,mode="constant",constant_values=0)
     return array
+
+# Készíts egy olyan függvényt ami két dátum között felsorolja az összes napot.
+# Be: '2023-03', '2023-04'
+# Ki: ['2023-03-01', '2023-03-02', .. , '2023-03-31',]
+# list_days()
+def list_days(date1:np.datetime64,date2:np.datetime64):
+    result=np.arange(date1,date2,dtype="M8[D]")
+    return result
