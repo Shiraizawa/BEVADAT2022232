@@ -77,3 +77,14 @@ def eval_classification(list: list, probability_array:np.array):
 def replace_odd_numbers(array:np.array):
     array=np.where(array[::]%2==1,-1,array)
     return array
+
+# Készíts egy olyan függvényt, ami egy array értékeit -1 és 1-re változtatja, attól függően, hogy az adott elem nagyobb vagy kisebb a paraméterként megadott számnál.
+# Ha a szám kisebb mint a megadott érték, akkor -1, ha nagyobb vagy egyenlő, akkor pedig 1.
+# Be: [1, 2, 5, 0], 2
+# Ki: [-1, 1, 1, -1]
+# replace_by_value()
+
+def replace_by_value(array:np.array, value:int):
+    array=np.where(array[::]<value,-1,1)
+    return array
+
