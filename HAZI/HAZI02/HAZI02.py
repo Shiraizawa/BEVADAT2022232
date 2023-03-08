@@ -88,3 +88,13 @@ def replace_by_value(array:np.array, value:int):
     array=np.where(array[::]<value,-1,1)
     return array
 
+# Készítsd egy olyan függvényt, ami az array értékeit összeszorozza és az eredmény visszaadja
+# Be: [1,2,3,4]
+# Ki: 24
+# array_multi()
+# Ha több dimenziós a tömb, akkor az egész tömb elemeinek szorzatával térjen vissza
+
+def array_multi(array:np.array):
+    result=np.prod(array)
+    return result
+
