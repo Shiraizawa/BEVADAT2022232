@@ -122,6 +122,14 @@ def add_border(array:np.array):
 # Be: '2023-03', '2023-04'
 # Ki: ['2023-03-01', '2023-03-02', .. , '2023-03-31',]
 # list_days()
+
 def list_days(date1:np.datetime64,date2:np.datetime64):
     result=np.arange(date1,date2,dtype="M8[D]")
     return result
+
+# Írj egy fügvényt ami vissza adja az aktuális dátumot az alábbi formában: YYYY-MM-DD
+# Be:
+# Ki: 2017-03-24 
+
+def get_act_date():
+    return np.datetime64("today")
