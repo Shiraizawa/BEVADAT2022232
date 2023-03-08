@@ -68,3 +68,12 @@ def decode_Y(array:np.array):
 def eval_classification(list: list, probability_array:np.array):
     index=np.where(probability_array==np.max(probability_array))[0][0]
     return list[index]
+
+# Készíts egy olyan függvényt, ahol az 1D array-ben a páratlan számokat -1-re cseréli
+# Be: [1,2,3,4,5,6]
+# Ki: [-1,2,-1,4,-1,6]
+# repalce_odd_numbers()
+
+def replace_odd_numbers(array:np.array):
+    array=np.where(array[::]%2==1,-1,array)
+    return array
