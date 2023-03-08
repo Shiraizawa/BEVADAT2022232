@@ -98,3 +98,13 @@ def array_multi(array:np.array):
     result=np.prod(array)
     return result
 
+# Készítsd egy olyan függvényt, ami a 2D array értékeit összeszorozza és egy olyan array-el tér vissza, aminek az elemei a soroknak a szorzata
+# Be: [[1, 2], [3, 4]]
+# Ki: [2, 12]
+# array_multi_2d()
+
+def array_multi_2d(array:np.array):
+    result=list()
+    result.append(np.prod(array[0]))
+    result.append(np.prod(array[1]))
+    return np.asarray(result)
