@@ -133,3 +133,13 @@ def list_days(date1:np.datetime64,date2:np.datetime64):
 
 def get_act_date():
     return np.datetime64("today")
+
+# Írj egy olyan függvényt ami visszadja, hogy mennyi másodperc telt el 1970 január 01. 00:00:00 óta.
+# Be: 
+# Ki: másodpercben az idó, int-é kasztolva
+# sec_from_1970()
+
+def sec_from_1970():
+    current_time=np.datetime64("now")
+    result=current_time-np.datetime64("1970-01-01T00:00:00")
+    return int(result/np.timedelta64(1,"s"))
