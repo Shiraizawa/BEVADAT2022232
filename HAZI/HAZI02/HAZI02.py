@@ -34,3 +34,22 @@ def get_array_shape(array):
     else:
         melyseg=result_array[2]
     return "sor: {}, oszlop: {}, melyseg: {}".format(result_array[0], result_array[1], melyseg)
+
+# Készíts egy olyan függvényt, aminek segítségével elő tudod állítani egy neurális hálózat tanításához szükséges Y-okat egy numpy array-ből. 
+#Bementként add meg az array-t, illetve hogy mennyi class-od van. Kimenetként pedig adjon vissza egy 2d array-t, ahol a sorok az egyes elemek. Minden nullákkal teli legyen és csak ott álljon egyes, ahol a bementi tömb megjelöli
+# Be: [1, 2, 0, 3], 4
+# Ki: [[0,1,0,0], [0, 0, 1, 0], [1, 0, 0, 0], [0, 0, 0, 1]]
+# encode_Y()
+
+def encode_Y(array:np.array,length:int):
+    new_array = []
+    for x in array:
+        holder_array=np.zeros(length,dtype=int)
+        holder_array[x]=1
+        new_array.append(holder_array)
+    new_array=np.asarray(new_array)
+    return new_array
+
+array=np.array([1, 2, 0, 3])
+print(encode_Y(array,4))
+        
