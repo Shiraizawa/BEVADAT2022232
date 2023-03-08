@@ -50,6 +50,15 @@ def encode_Y(array:np.array,length:int):
     new_array=np.asarray(new_array)
     return new_array
 
-array=np.array([1, 2, 0, 3])
-print(encode_Y(array,4))
-        
+# A fenti feladatnak valósítsd meg a kiértékelését. Adj meg a 2d array-t és adj vissza a decodolt változatát
+# Be:  [[0,1,0,0], [0, 0, 1, 0], [1, 0, 0, 0], [0, 0, 0, 1]]
+# Ki:  [1, 2, 0, 3]
+# decode_Y()
+
+def decode_Y(array:np.array):
+    result_array=[]
+    result_array.append(np.where(array==1)[1])
+    return result_array
+
+array = np.array([[0,1,0,0], [0, 0, 1, 0], [1, 0, 0, 0], [0, 0, 0, 1]])
+print(decode_Y(array))
