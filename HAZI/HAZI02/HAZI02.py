@@ -60,5 +60,11 @@ def decode_Y(array:np.array):
     result_array.append(np.where(array==1)[1])
     return result_array
 
-array = np.array([[0,1,0,0], [0, 0, 1, 0], [1, 0, 0, 0], [0, 0, 0, 1]])
-print(decode_Y(array))
+# Készíts egy olyan függvényt, ami képes kiértékelni egy neurális háló eredményét! Bemenetként egy listát és egy array-t és adja vissza a legvalószínübb element a listából.
+# Be: ['alma', 'körte', 'szilva'], [0.2, 0.2, 0.6]. 
+# Ki: 'szilva'
+# eval_classification()
+
+def eval_classification(list: list, probability_array:np.array):
+    index=np.where(probability_array==np.max(probability_array))[0][0]
+    return list[index]
