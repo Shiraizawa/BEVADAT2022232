@@ -41,9 +41,10 @@ def get_array_shape(array):
 # Ki: [[0,1,0,0], [0, 0, 1, 0], [1, 0, 0, 0], [0, 0, 0, 1]]
 # encode_Y()
 
-def encode_Y(array:np.array,length:int):
-    new_array= np.eye(length)[array-1]
-    return new_array
+def encode_Y(array, length):
+    result = np.zeros((len(array), length))
+    result[np.arange(len(array)), array] = 1
+    return result
 
 # A fenti feladatnak valósítsd meg a kiértékelését. Adj meg a 2d array-t és adj vissza a decodolt változatát
 # Be:  [[0,1,0,0], [0, 0, 1, 0], [1, 0, 0, 0], [0, 0, 0, 1]]
@@ -53,7 +54,7 @@ def encode_Y(array:np.array,length:int):
 def decode_Y(array:np.array):
     result_array=[]
     result_array.append(np.where(array==1)[1])
-    return result_array
+    return result_array[0]
 
 # Készíts egy olyan függvényt, ami képes kiértékelni egy neurális háló eredményét! Bemenetként egy listát és egy array-t és adja vissza a legvalószínübb element a listából.
 # Be: ['alma', 'körte', 'szilva'], [0.2, 0.2, 0.6]. 
@@ -98,11 +99,9 @@ def array_multi(array:np.array):
 # Ki: [2, 12]
 # array_multi_2d()
 
-def array_multi_2d(array:np.array):
-    result=list()
-    result.append(np.prod(array[0]))
-    result.append(np.prod(array[1]))
-    return np.asarray(result)
+def array_multi_2d(array):
+    arr=np.prod(array, axis=1)
+    return arr
 
 # Készíts egy olyan függvényt, amit egy meglévő numpy array-hez készít egy bordert nullásokkal. Bementként egy array-t várjon és kimenetként egy array jelenjen meg aminek van border-je
 # Be: [[1,2],[3,4]]
@@ -136,5 +135,6 @@ def get_act_date():
 
 def sec_from_1970():
     current_time=np.datetime64("now")
+    current_time=current_time+np.timedelta64(1,"h")
     result=current_time-np.datetime64("1970-01-01T00:00:00")
     return int(result/np.timedelta64(1,"s"))
