@@ -28,7 +28,6 @@ def compare_two_array(array1, array2):
 
 def get_array_shape(array):
     result_array=np.array(np.shape(array))
-    print(result_array)
     if len(result_array)<3:
         melyseg=1
     else:
