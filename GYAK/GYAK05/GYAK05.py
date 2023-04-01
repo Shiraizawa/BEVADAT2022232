@@ -33,12 +33,12 @@ class KNNClassifier:
         self.x_test,self.y_test = features[train_size:train_size+test_size,:], labels[train_size:train_size + test_size]
         
     def euclidean(self,element_of_x:np.ndarray) -> np.ndarray:
-        return np.sqrt(np.sum((self.points - element_of_x)**2,axis=1))
+        return np.sqrt(np.sum((self.x_train - element_of_x)**2,axis=1))
     
     def predict(self,x_test:np.ndarray) -> np.ndarray:
         labels_pred = []
         for x_test_element in x_test:
-            distances = self.euclidean(self.x_train,x_test_element)
+            distances = self.euclidean(x_test_element)
             distances = np.array(sorted(zip(distances,self.y_train)))
             label_pred = mode(distances[:self.k,1],keepdims=False).mode
             labels_pred.append(label_pred)
