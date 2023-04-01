@@ -16,9 +16,8 @@ class KNNClassifier:
         return self.k
         
     @staticmethod
-    def load_csv(self, csv_path: str) -> Tuple[pd.DataFrame, pd.DataFrame]:
-        self.csv_path=csv_path
-        dataset = pd.read_csv(csv_path, skiprows=1, header=None)
+    def load_csv( csv_path: str) -> Tuple[pd.DataFrame, pd.DataFrame]:
+        dataset = pd.read_csv(csv_path, header=None)
         dataset = dataset.sample(frac=1, random_state=42)
         x, y = dataset.iloc[:, :-1], dataset.iloc[:, -1]
         return x, y
@@ -51,7 +50,7 @@ class KNNClassifier:
             distances = distances.sort_values(by=[0])
             label_pred = mode(distances.iloc[:self.k, 1], keepdims=False).mode
             labels_pred.append(label_pred)
-        self.y_preds = pd.DataFrame(labels_pred, dtype=pd.Int64Dtype)
+        self.y_preds = pd.DataFrame(labels_pred)
         
     def accuracy(self) -> float:
         yPredSeries=self.y_preds[0]
@@ -68,15 +67,15 @@ class KNNClassifier:
         return conf_matrix
     
     def best_k(self):
+        old_k=self.k
         best_accuracy=0
         best_k_value=0
         for i in range(21):
-          knn=KNNClassifier(k=i, test_split_ratio=self.test_split_ratio)
-          features, labels=KNNClassifier.load_csv(self.csv_path)
-          knn.train_test_split(features, labels)
-          knn.predict(knn.x_test)
-          predicted_value=knn.accuracy()
+          self.k=i
+          self.predict(self.x_test)
+          predicted_value=self.accuracy()
           if(best_accuracy<predicted_value):
               best_accuracy=predicted_value
               best_k_value=i
+        self.k=old_k
         return (best_k_value,best_accuracy.round(2))
