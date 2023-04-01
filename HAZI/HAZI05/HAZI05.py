@@ -16,7 +16,8 @@ class KNNClassifier:
         return self.k
         
     @staticmethod
-    def load_csv(csv_path: str) -> Tuple[pd.DataFrame, pd.DataFrame]:
+    def load_csv(self, csv_path: str) -> Tuple[pd.DataFrame, pd.DataFrame]:
+        self.csv_path=csv_path
         dataset = pd.read_csv(csv_path, skiprows=1, header=None)
         dataset = dataset.sample(frac=1, random_state=42)
         x, y = dataset.iloc[:, :-1], dataset.iloc[:, -1]
@@ -71,7 +72,7 @@ class KNNClassifier:
         best_k_value=0
         for i in range(21):
           knn=KNNClassifier(k=i, test_split_ratio=self.test_split_ratio)
-          features, labels=KNNClassifier.load_csv(csv_path)
+          features, labels=KNNClassifier.load_csv(self.csv_path)
           knn.train_test_split(features, labels)
           knn.predict(knn.x_test)
           predicted_value=knn.accuracy()
