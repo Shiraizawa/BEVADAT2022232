@@ -16,9 +16,9 @@ class KNNClassifier:
         return self.k
         
     @staticmethod
-    def load_csv( csv_path: str) -> Tuple[pd.DataFrame, pd.DataFrame]:
-        dataset = pd.read_csv(csv_path, header=None)
-        dataset = dataset.sample(frac=1, random_state=42)
+    def load_csv( csv_path: str) -> Tuple[pd.DataFrame, pd.Series]:
+        dataset = pd.read_csv(csv_path)
+        dataset = dataset.sample(frac=1, random_state=42).reset_index(drop=True)
         x, y = dataset.iloc[:, :-1], dataset.iloc[:, -1]
         return x, y
         
@@ -50,7 +50,7 @@ class KNNClassifier:
             distances = distances.sort_values(by=[0])
             label_pred = mode(distances.iloc[:self.k, 1], keepdims=False).mode
             labels_pred.append(label_pred)
-        self.y_preds = pd.DataFrame(labels_pred)
+        self.y_preds = pd.Series(labels_pred)
         
     def accuracy(self) -> float:
         yPredSeries=self.y_preds[0]
