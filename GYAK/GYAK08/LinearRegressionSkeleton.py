@@ -33,9 +33,4 @@ class LinearRegression:
         for x in X:
           y_pred = self.m*x + self.c
           pred.append(y_pred)
-        
-        # Making predictions
-        y_pred = self.m*X + self.c
-        plt.scatter(X, y_test)
-        plt.plot([min(X), max(X)], [min(y_pred), max(y_pred)], color='red') # predicted
-        plt.show()
+        return pred
