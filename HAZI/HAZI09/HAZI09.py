@@ -34,7 +34,7 @@ class KMeansOnDigits():
         self.labels=labels
         
     def calc_accuracy(self):
-        self.acc=accuracy_score(self.digits.target,self.labels).round(2)
+        self.accuracy=accuracy_score(self.digits.target,self.labels).round(2)
         
     def confusion_matrix(self):
         self.mat=confusion_matrix(self.digits.target,self.labels)
